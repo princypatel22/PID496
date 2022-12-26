@@ -1,18 +1,20 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+
 int login(int name, int pwd);
 int homepage();
 int admin();
 int varify();
+int sceam();
 int pay();
 
 int login(int name, int pwd)
 {
-	int len, n=1; 
+	int len, n=1;
 	char ch;
 	int a[10], b[10];
-	printf("\nYou shoud enter same User ID and Password...\n");
+	printf("\nYou shoud enter same User ID and Password\n");
 	printf("\nEnter Your User ID : \n");
 	scanf("%s",&a);
 	printf("\nEnter Your Password : \n");
@@ -54,16 +56,16 @@ int homepage()
 	}
 	else if(choice==3)
 	{
-		pay();
+		sceam();
 	}
 }
 
-char i, details[20], name[20], email[20], mobile[20], vehical[20], address[30];	
+char i, details[20], name[20], email[20], mobile[20], vehical[20], address[30], entry[10], out[10];
 int admin()
 {
 	char ch;
      do{
-		printf("\nPlease Enter Your Valid Details...\n");
+		printf("\n==> Please Enter Your Valid Details...\n");
 		gets(details);
 		fflush;
 	
@@ -87,7 +89,16 @@ int admin()
 		gets(address);
 		fflush;
 		
-	    printf("Do you want another another: Press 'Y' for yes and 'N' for No:?");
+		printf("Enter your Entry Date & Time : ");
+		gets(entry);
+		fflush;
+		
+		printf("Enter your Exit Date & Time : ");
+		gets(out);
+		fflush;
+		
+	    printf("Do you want to add another admin file ??");
+	    printf("Press 'Y' for Yes and 'N' for No : ");
 	    scanf("%c",&ch);
 	}
 	while(ch=='Y'||ch=='y');
@@ -97,7 +108,7 @@ int admin()
  
 int varify()
 {
-		printf("Name : %s\n",&name[i]);
+		printf("\nName : %s\n",&name[i]);
 		fflush;
 		printf("Email ID : %s\n",&email[i]);
 		fflush;
@@ -107,12 +118,16 @@ int varify()
 		fflush;
 		printf("Location Address : %s\n",&address[i]);
 		fflush;
+		printf("Entry Date & Time : %s\n",&entry[i]);
+		fflush;
+		printf("Exit Date & Time : %s\n",&out[i]);
+		fflush;
 		homepage();
 }
 
 int pay()
 {
-	printf("******************************************************************************\n");
+	printf("\n******************************************************************************\n");
 	printf("\n                        Your Process is completeted....                       \n");
 	printf("                   Your nearest Parking area is Ganesh Meridian               \n");
 	printf("               Please Pay Your Fees on the bellow contact Number...           \n");
@@ -122,9 +137,19 @@ int pay()
 	printf("==============================================================================\n");
 }
 
+int sceam()
+{
+	int scm, a, b, c;
+	printf("\na. ==> If you want to park your car everyday, you should pay Rs.1200 per month.\n");
+	printf("b. ==> If you want to park your car for some days, you should pay Rs.200 per day.\n");
+	printf("c. ==> If you want to park your car only for today, you should pay Rs.20 per hover.\n");
+	printf("\nTell us your choice : ");
+	scanf("%d",&scm);
+	pay();
+}
+
 int main()
 {
-	char p, n[20], e[20], m[20], v[20], a[30];
 	int x[10], y[10];
 	printf("==============================================================================\n");
 	printf("******************************************************************************\n");
@@ -140,4 +165,3 @@ int main()
 	login(&x,&y);
 	return 0;
 }
-
